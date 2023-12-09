@@ -1,3 +1,6 @@
+install:
+	go install github.com/favadi/protoc-go-inject-tag@latest
+
 gen_example:
 	buf build
 	buf generate
