@@ -7,4 +7,3 @@ lint:
     - DEFAULT
 deps:
   - buf.build/googleapis/googleapis
-  - buf.build/ringsaturn/protoc-gen-go-errors
