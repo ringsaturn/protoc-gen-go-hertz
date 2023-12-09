@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+option go_package = "github.com/ringsaturn/protoc-gen-go-hertz/_example/hertz-blog-service/api/product/app/v1;v1";
+
+package product.app.v1;
+
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+
+// blog service is a blog demo
+service BlogService {
+	option (google.api.default_host) = "0.0.0.0:8888";
+
+	rpc GetArticles(GetArticlesRequest) returns (GetArticlesResponse) {
+		option (google.api.http) = {
+			get: "/v1/articles"
+			additional_bindings {
+				get: "/v1/author/{author_id}/articles"
+			}
+		};
+	}
+
+	rpc CreateArticle(CreateArticleRequest) returns (CreateArticleResponse) {
+		option (google.api.http) = {
+			post: "/v1/author/{author_id}/articles"
+		};
+	}
+}
+
+message GetArticlesRequest {
+	// @gotags: query:"title"
+	string title = 1;
+
+	// @gotags: query:"page"
+	int32 page = 2;
+
+	// @gotags: query:"page_size"
+	int32 page_size = 3;
+
+	// @gotags: path:"author_id,required"
+	int32 author_id = 4;
+}
+
+message GetArticlesResponse {
+	int64 total = 1;
+	repeated Article articles = 2;
+}
+
+message CreateArticleRequest {
+	string title  = 1;
+	string content = 2;
+	// @gotags: path:"author_id" json:"author_id,omitempty"
+	int32 author_id = 3;
+}
+
+message Article {
+	string title  = 1;
+	string content = 2;
+	int32 author_id = 3;
+}
+
+message CreateArticleResponse {
+	Article article = 1;
+}
