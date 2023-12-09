@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option go_package = "github.com/ringsaturn/protoc-gen-go-hertz/_example/hertz-blog-service/api/product/app/v1;v1";
 
-package product.app.v1;
+package api.product.app.v1;
 
 import "google/api/annotations.proto";
 import "google/api/client.proto";
