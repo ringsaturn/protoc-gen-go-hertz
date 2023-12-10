@@ -13,26 +13,21 @@ paths:
                 - BlogService
             operationId: BlogService_GetArticles
             parameters:
-                - name: title
-                  in: query
-                  description: '@gotags: query:"title"'
-                  schema:
-                    type: string
                 - name: page
                   in: query
-                  description: '@gotags: query:"page"'
+                  description: '@gotags: query:"page" default:"1" vd:"$>=1"'
                   schema:
                     type: integer
                     format: int32
                 - name: pageSize
                   in: query
-                  description: '@gotags: query:"page_size"'
+                  description: '@gotags: query:"page_size" default:"1" vd:"$>=1"'
                   schema:
                     type: integer
                     format: int32
                 - name: authorId
                   in: query
-                  description: '@gotags: path:"author_id,required"'
+                  description: '@gotags: path:"author_id,required" vd:"$>1"'
                   schema:
                     type: integer
                     format: int32
@@ -57,25 +52,20 @@ paths:
             parameters:
                 - name: authorId
                   in: path
-                  description: '@gotags: path:"author_id,required"'
+                  description: '@gotags: path:"author_id,required" vd:"$>1"'
                   required: true
                   schema:
                     type: integer
                     format: int32
-                - name: title
-                  in: query
-                  description: '@gotags: query:"title"'
-                  schema:
-                    type: string
                 - name: page
                   in: query
-                  description: '@gotags: query:"page"'
+                  description: '@gotags: query:"page" default:"1" vd:"$>=1"'
                   schema:
                     type: integer
                     format: int32
                 - name: pageSize
                   in: query
-                  description: '@gotags: query:"page_size"'
+                  description: '@gotags: query:"page_size" default:"1" vd:"$>=1"'
                   schema:
                     type: integer
                     format: int32
@@ -99,17 +89,19 @@ paths:
             parameters:
                 - name: authorId
                   in: path
-                  description: '@gotags: path:"author_id" json:"author_id,omitempty"'
+                  description: '@gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1'
                   required: true
                   schema:
                     type: integer
                     format: int32
                 - name: title
                   in: query
+                  description: '@gotags: vd:"$!=''''"'
                   schema:
                     type: string
                 - name: content
                   in: query
+                  description: '@gotags: vd:"$!=''''"'
                   schema:
                     type: string
             responses:
@@ -146,7 +138,8 @@ components:
             type: object
             properties:
                 total:
-                    type: string
+                    type: integer
+                    format: int32
                 articles:
                     type: array
                     items:

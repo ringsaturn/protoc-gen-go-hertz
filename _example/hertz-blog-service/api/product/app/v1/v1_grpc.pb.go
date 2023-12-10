@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	BlogService_GetArticles_FullMethodName   = "/product.app.v1.BlogService/GetArticles"
-	BlogService_CreateArticle_FullMethodName = "/product.app.v1.BlogService/CreateArticle"
+	BlogService_GetArticles_FullMethodName   = "/api.product.app.v1.BlogService/GetArticles"
+	BlogService_CreateArticle_FullMethodName = "/api.product.app.v1.BlogService/CreateArticle"
 )
 
 // BlogServiceClient is the client API for BlogService service.
@@ -129,7 +129,7 @@ func _BlogService_CreateArticle_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var BlogService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "product.app.v1.BlogService",
+	ServiceName: "api.product.app.v1.BlogService",
 	HandlerType: (*BlogServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

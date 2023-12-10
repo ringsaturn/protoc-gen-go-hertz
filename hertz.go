@@ -14,10 +14,10 @@ import (
 const (
 	contextPkg         = protogen.GoImportPath("context")
 	ctxPkg             = protogen.GoImportPath("context")
-	hertzUtilsPkg      = protogen.GoImportPath("github.com/cloudwego/hertz/pkg/common/utils")
 	hertzServerPkg     = protogen.GoImportPath("github.com/cloudwego/hertz/pkg/app/server")
 	hertzAppPkg        = protogen.GoImportPath("github.com/cloudwego/hertz/pkg/app")
 	netHttpPkg         = protogen.GoImportPath("net/http")
+	xhertzPkg          = protogen.GoImportPath("github.com/ringsaturn/protoc-gen-go-hertz/xhertz")
 	deprecationComment = "// Deprecated: Do not use."
 )
 
@@ -37,10 +37,10 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) *protogen.Generated
 
 	g.P("// ", ctxPkg.Ident(""), ctxPkg.Ident(""))
 	g.P("// ", netHttpPkg.Ident(""), netHttpPkg.Ident(""))
-	g.P()
+	g.P("")
 	g.P("// ", hertzAppPkg.Ident(""), hertzAppPkg.Ident(""))
 	g.P("// ", hertzServerPkg.Ident(""), hertzServerPkg.Ident(""))
-	g.P("// ", hertzUtilsPkg.Ident(""), hertzUtilsPkg.Ident(""))
+	g.P("// ", xhertzPkg.Ident(""), xhertzPkg.Ident(""))
 	g.P()
 
 	for _, service := range file.Services {

@@ -21,12 +21,12 @@ func (s *{{$.Name}}) {{ .HandlerName }} (c context.Context, ctx *app.RequestCont
 	var in {{.Request}}
 
 	if err := ctx.BindAndValidate(&in); err != nil {
-		ctx.JSON(http.StatusBadRequest, utils.H{"error": err.Error()})
+		xhertz.HandleBadRequest(ctx, err)
 		return
 	}
 	out, err := s.server.({{ $.InterfaceName }}).{{.Name}}(c, &in)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, utils.H{"error": err.Error()})
+		xhertz.HandleError(ctx, err)
 		return
 	}
 

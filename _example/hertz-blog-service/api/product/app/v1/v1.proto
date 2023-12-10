@@ -28,28 +28,27 @@ service BlogService {
 }
 
 message GetArticlesRequest {
-	// @gotags: query:"title"
-	string title = 1;
+	// @gotags: query:"page" default:"1" vd:"$>=1"
+	int32 page = 1;
 
-	// @gotags: query:"page"
-	int32 page = 2;
+	// @gotags: query:"page_size" default:"1" vd:"$>=1"
+	int32 page_size = 2;
 
-	// @gotags: query:"page_size"
-	int32 page_size = 3;
-
-	// @gotags: path:"author_id,required"
-	int32 author_id = 4;
+	// @gotags: path:"author_id,required" vd:"$>1"
+	int32 author_id = 3;
 }
 
 message GetArticlesResponse {
-	int64 total = 1;
+	int32 total = 1;
 	repeated Article articles = 2;
 }
 
 message CreateArticleRequest {
+	// @gotags: vd:"$!=''"
 	string title  = 1;
+	// @gotags: vd:"$!=''"
 	string content = 2;
-	// @gotags: path:"author_id" json:"author_id,omitempty"
+	// @gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1
 	int32 author_id = 3;
 }
 

@@ -6,7 +6,7 @@ import (
 	context "context"
 	app "github.com/cloudwego/hertz/pkg/app"
 	server "github.com/cloudwego/hertz/pkg/app/server"
-	utils "github.com/cloudwego/hertz/pkg/common/utils"
+	xhertz "github.com/ringsaturn/protoc-gen-go-hertz/xhertz"
 	http "net/http"
 )
 
@@ -15,7 +15,7 @@ import (
 
 // app.app.
 // server.server.
-// utils.utils.
+// xhertz.xhertz.
 
 type BlogServiceHTTPServer interface {
 	CreateArticle(context.Context, *CreateArticleRequest) (*CreateArticleResponse, error)
@@ -40,12 +40,12 @@ func (s *BlogService) GetArticles_0(c context.Context, ctx *app.RequestContext) 
 	var in GetArticlesRequest
 
 	if err := ctx.BindAndValidate(&in); err != nil {
-		ctx.JSON(http.StatusBadRequest, utils.H{"error": err.Error()})
+		xhertz.HandleBadRequest(ctx, err)
 		return
 	}
 	out, err := s.server.(BlogServiceHTTPServer).GetArticles(c, &in)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, utils.H{"error": err.Error()})
+		xhertz.HandleError(ctx, err)
 		return
 	}
 
@@ -56,12 +56,12 @@ func (s *BlogService) GetArticles_1(c context.Context, ctx *app.RequestContext) 
 	var in GetArticlesRequest
 
 	if err := ctx.BindAndValidate(&in); err != nil {
-		ctx.JSON(http.StatusBadRequest, utils.H{"error": err.Error()})
+		xhertz.HandleBadRequest(ctx, err)
 		return
 	}
 	out, err := s.server.(BlogServiceHTTPServer).GetArticles(c, &in)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, utils.H{"error": err.Error()})
+		xhertz.HandleError(ctx, err)
 		return
 	}
 
@@ -72,12 +72,12 @@ func (s *BlogService) CreateArticle_0(c context.Context, ctx *app.RequestContext
 	var in CreateArticleRequest
 
 	if err := ctx.BindAndValidate(&in); err != nil {
-		ctx.JSON(http.StatusBadRequest, utils.H{"error": err.Error()})
+		xhertz.HandleBadRequest(ctx, err)
 		return
 	}
 	out, err := s.server.(BlogServiceHTTPServer).CreateArticle(c, &in)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, utils.H{"error": err.Error()})
+		xhertz.HandleError(ctx, err)
 		return
 	}
 
