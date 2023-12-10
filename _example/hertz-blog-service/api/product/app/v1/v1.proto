@@ -6,6 +6,7 @@ package api.product.app.v1;
 
 import "google/api/annotations.proto";
 import "google/api/client.proto";
+import "google/api/field_behavior.proto";
 
 // blog service is a blog demo
 service BlogService {
@@ -45,11 +46,11 @@ message GetArticlesResponse {
 
 message CreateArticleRequest {
 	// @gotags: vd:"$!=''"
-	string title  = 1;
+	string title  = 1 [(google.api.field_behavior) = REQUIRED];
 	// @gotags: vd:"$!=''"
-	string content = 2;
+	string content = 2 [(google.api.field_behavior) = REQUIRED];
 	// @gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1
-	int32 author_id = 3;
+	int32 author_id = 3 [(google.api.field_behavior) = REQUIRED];
 }
 
 message Article {
