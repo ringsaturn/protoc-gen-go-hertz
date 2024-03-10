@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-go install github.com/ringsaturn/protoc-gen-go-hertz/cmd/protoc-gen-go-hertz@latest
+go install github.com/ringsaturn/protoc-gen-go-hertz@latest
 ```
 
 ## Usage
