@@ -3,6 +3,8 @@ package xhertz
 import (
 	"github.com/cloudwego/hertz/pkg/app"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/proto"
 )
 
 func buildRequestMetadata(ctx *app.RequestContext) map[string]string {
@@ -83,4 +85,19 @@ func HandleBadRequest(ctx *app.RequestContext, err error) {
 
 func renderErr(ctx *app.RequestContext, err *Error) {
 	ctx.JSON(err.HTTPCode, &ErrorResponse{Status: *err})
+}
+
+func Render(ctx *app.RequestContext, status int, data any) {
+	m, ok := data.(proto.Message)
+	if !ok {
+		ctx.JSON(status, data)
+		return
+	}
+	b, err := protojson.Marshal(m)
+	if err != nil {
+		ctx.JSON(status, data)
+		return
+	}
+	ctx.SetContentType("application/json")
+	_, _ = ctx.Write(b)
 }

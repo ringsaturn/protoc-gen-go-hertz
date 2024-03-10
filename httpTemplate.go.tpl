@@ -35,7 +35,7 @@ func _{{$svrType}}_{{.Name}}{{.Num}}_HTTP_Handler(srv {{$svrType}}HTTPServer) fu
 			xhertz.HandleError(ctx, err)
 			return
 		}
-		ctx.JSON(http.StatusOK, out)
+		xhertz.Render(ctx, http.StatusOK, out)
 	}
 }
 {{end}}

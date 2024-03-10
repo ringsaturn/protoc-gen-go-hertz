@@ -53,7 +53,7 @@ message CreateArticleRequest {
 message Article {
   string title    = 1;
   string content  = 2;
-  int32 author_id = 3;
+  int32 author_id = 3 [json_name="author_id"];
 }
 
 message CreateArticleResponse {

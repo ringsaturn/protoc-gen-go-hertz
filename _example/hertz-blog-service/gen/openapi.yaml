@@ -89,7 +89,7 @@ components:
                     type: string
                 content:
                     type: string
-                authorId:
+                author_id:
                     type: integer
                     format: int32
         CreateArticleResponse:

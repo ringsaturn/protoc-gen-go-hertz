@@ -49,7 +49,7 @@ func _BlogService_GetArticles0_HTTP_Handler(srv BlogServiceHTTPServer) func(c co
 			xhertz.HandleError(ctx, err)
 			return
 		}
-		ctx.JSON(http.StatusOK, out)
+		xhertz.Render(ctx, http.StatusOK, out)
 	}
 }
 
@@ -66,6 +66,6 @@ func _BlogService_CreateArticle0_HTTP_Handler(srv BlogServiceHTTPServer) func(c 
 			xhertz.HandleError(ctx, err)
 			return
 		}
-		ctx.JSON(http.StatusOK, out)
+		xhertz.Render(ctx, http.StatusOK, out)
 	}
 }
