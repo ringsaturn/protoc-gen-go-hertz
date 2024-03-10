@@ -33,28 +33,10 @@ type BlogServiceHTTPServer interface {
 func RegisterBlogServiceHTTPServer(h *server.Hertz, srv BlogServiceHTTPServer) {
 	group := h.Group("/")
 	group.Handle("GET", "/v1/author/:author_id/articles", _BlogService_GetArticles0_HTTP_Handler(srv))
-	group.Handle("GET", "/v1/articles", _BlogService_GetArticles1_HTTP_Handler(srv))
 	group.Handle("POST", "/v1/author/:author_id/articles", _BlogService_CreateArticle0_HTTP_Handler(srv))
 }
 
 func _BlogService_GetArticles0_HTTP_Handler(srv BlogServiceHTTPServer) func(c context.Context, ctx *app.RequestContext) {
-	return func(c context.Context, ctx *app.RequestContext) {
-		var in GetArticlesRequest
-		if err := ctx.BindAndValidate(&in); err != nil {
-			xhertz.HandleBadRequest(ctx, err)
-			return
-		}
-
-		out, err := srv.GetArticles(c, &in)
-		if err != nil {
-			xhertz.HandleError(ctx, err)
-			return
-		}
-		ctx.JSON(http.StatusOK, out)
-	}
-}
-
-func _BlogService_GetArticles1_HTTP_Handler(srv BlogServiceHTTPServer) func(c context.Context, ctx *app.RequestContext) {
 	return func(c context.Context, ctx *app.RequestContext) {
 		var in GetArticlesRequest
 		if err := ctx.BindAndValidate(&in); err != nil {

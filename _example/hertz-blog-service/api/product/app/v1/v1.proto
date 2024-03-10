@@ -10,55 +10,52 @@ import "google/api/field_behavior.proto";
 
 // blog service is a blog demo
 service BlogService {
-	option (google.api.default_host) = "0.0.0.0:8888";
+  option (google.api.default_host) = "0.0.0.0:8888";
 
-	rpc GetArticles(GetArticlesRequest) returns (GetArticlesResponse) {
-		option (google.api.http) = {
-			get: "/v1/articles"
-			additional_bindings {
-				get: "/v1/author/{author_id}/articles"
-			}
-		};
-	}
+  rpc GetArticles(GetArticlesRequest) returns (GetArticlesResponse) {
+    option (google.api.http) = {
+      get: "/v1/author/{author_id}/articles"
+    };
+  }
 
-	rpc CreateArticle(CreateArticleRequest) returns (CreateArticleResponse) {
-		option (google.api.http) = {
-			post: "/v1/author/{author_id}/articles"
-		};
-	}
+  rpc CreateArticle(CreateArticleRequest) returns (CreateArticleResponse) {
+    option (google.api.http) = {
+      post: "/v1/author/{author_id}/articles"
+    };
+  }
 }
 
 message GetArticlesRequest {
-	// @gotags: query:"page" default:"1" vd:"$>=1"
-	int32 page = 1;
+  // @gotags: query:"page" default:"1" vd:"$>=1"
+  int32 page = 1;
 
-	// @gotags: query:"page_size" default:"1" vd:"$>=1"
-	int32 page_size = 2;
+  // @gotags: query:"page_size" default:"1" vd:"$>=1"
+  int32 page_size = 2;
 
-	// @gotags: path:"author_id,required" vd:"$>1"
-	int32 author_id = 3;
+  // @gotags: query:"author_id" path:"author_id" vd:"$>1"
+  int32 author_id = 3;
 }
 
 message GetArticlesResponse {
-	int32 total = 1;
-	repeated Article articles = 2;
+  int32 total               = 1;
+  repeated Article articles = 2;
 }
 
 message CreateArticleRequest {
-	// @gotags: vd:"$!=''"
-	string title  = 1 [(google.api.field_behavior) = REQUIRED];
-	// @gotags: vd:"$!=''"
-	string content = 2 [(google.api.field_behavior) = REQUIRED];
-	// @gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1
-	int32 author_id = 3 [(google.api.field_behavior) = REQUIRED];
+  // @gotags: vd:"$!=''"
+  string title = 1 [(google.api.field_behavior) = REQUIRED];
+  // @gotags: vd:"$!=''"
+  string content = 2 [(google.api.field_behavior) = REQUIRED];
+  // @gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1
+  int32 author_id = 3 [(google.api.field_behavior) = REQUIRED];
 }
 
 message Article {
-	string title  = 1;
-	string content = 2;
-	int32 author_id = 3;
+  string title    = 1;
+  string content  = 2;
+  int32 author_id = 3;
 }
 
 message CreateArticleResponse {
-	Article article = 1;
+  Article article = 1;
 }
