@@ -27,11 +27,11 @@ type GetArticlesRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	 
+	// @gotags: query:"page" default:"1" vd:"$>=1"
 	Page int32 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty" query:"page" default:"1" vd:"$>=1"`
-	 
+	// @gotags: query:"page_size" default:"1" vd:"$>=1"
 	PageSize int32 `protobuf:"varint,2,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty" query:"page_size" default:"1" vd:"$>=1"`
-	 
+	// @gotags: query:"author_id" path:"author_id" vd:"$>1"
 	AuthorId int32 `protobuf:"varint,3,opt,name=author_id,json=authorId,proto3" json:"author_id,omitempty" query:"author_id" path:"author_id" vd:"$>1"`
 }
 
@@ -148,11 +148,11 @@ type CreateArticleRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	 
+	// @gotags: vd:"$!=”"
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" vd:"$!=”"`
-	 
+	// @gotags: vd:"$!=”"
 	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty" vd:"$!=”"`
-	 
+	// @gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1
 	AuthorId int32 `protobuf:"varint,3,opt,name=author_id,json=authorId,proto3" json:"author_id,omitempty" path:"author_id"`
 }
 
