@@ -9,3 +9,9 @@ gen:
 	buf generate
 	protoc-go-inject-tag -input=./api/product/app/v1/v1.pb.go
 	go fmt ./...
+
+lint:
+	buf lint
+
+format:
+	buf format -w
