@@ -1,6 +1,6 @@
 install:
 	go install github.com/favadi/protoc-go-inject-tag@latest
-	go install github.com/ringsaturn/protoc-gen-go-hertz/cmd/protoc-gen-go-hertz@latest
+	go install github.com/ringsaturn/protoc-gen-go-hertz@latest
 
 .PHONY:gen
 gen:
