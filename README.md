@@ -13,4 +13,4 @@ details.
 
 ## Thanks
 
-Revised from <https://github.com/varluffy/protoc-gen-go-gin>
+Revised from <https://github.com/go-kratos/kratos/tree/main/cmd/protoc-gen-go-http>
