@@ -3,9 +3,16 @@
 
 openapi: 3.0.3
 info:
-    title: BlogService API
-    description: blog service is a blog demo
-    version: 0.0.1
+    title: Hertz Blog Service
+    description: Hertz Blog Service
+    contact:
+        name: ringsaturn
+        url: https://github.com/ringsaturn/protoc-gen-go-hertz
+        email: ringsaturn.me@gmail.com
+    license:
+        name: MIT
+        url: https://github.com/ringsaturn/protoc-gen-go-hertz/blob/main/LICENSE
+    version: v0.3.1
 paths:
     /v1/author/{authorId}/articles:
         get:
@@ -57,16 +64,12 @@ paths:
                   schema:
                     type: integer
                     format: int32
-                - name: title
-                  in: query
-                  description: '@gotags: vd:"$!=''''"'
-                  schema:
-                    type: string
-                - name: content
-                  in: query
-                  description: '@gotags: vd:"$!=''''"'
-                  schema:
-                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateArticleRequest'
+                required: true
             responses:
                 "200":
                     description: OK
@@ -91,6 +94,23 @@ components:
                     type: string
                 author_id:
                     type: integer
+                    format: int32
+        CreateArticleRequest:
+            required:
+                - title
+                - content
+                - authorId
+            type: object
+            properties:
+                title:
+                    type: string
+                    description: '@gotags: vd:"$!=''''"'
+                content:
+                    type: string
+                    description: '@gotags: vd:"$!=''''"'
+                authorId:
+                    type: integer
+                    description: '@gotags: path:"author_id" json:"author_id,omitempty" vd:"$>1'
                     format: int32
         CreateArticleResponse:
             type: object

@@ -6,6 +6,7 @@ replace github.com/ringsaturn/protoc-gen-go-hertz => ../..
 
 require (
 	github.com/cloudwego/hertz v0.8.1
+	github.com/google/gnostic v0.7.0
 	github.com/hertz-contrib/swagger v0.1.0
 	github.com/ringsaturn/protoc-gen-go-hertz v0.2.1
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
@@ -30,6 +31,7 @@ require (
 	github.com/go-openapi/spec v0.20.9 // indirect
 	github.com/go-openapi/swag v0.22.4 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
+	github.com/google/gnostic-models v0.6.9-0.20230804172637-c7be7c783f49 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

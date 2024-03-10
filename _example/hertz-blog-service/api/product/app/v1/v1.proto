@@ -7,6 +7,24 @@ package api.product.app.v1;
 import "google/api/annotations.proto";
 import "google/api/client.proto";
 import "google/api/field_behavior.proto";
+import "gnostic/openapi/v3/annotations.proto";
+
+option (gnostic.openapi.v3.document) = {
+  info: {
+    title: "Hertz Blog Service";
+    version: "v0.3.1";
+    description: "Hertz Blog Service";
+    contact: {
+      name: "ringsaturn";
+      url: "https://github.com/ringsaturn/protoc-gen-go-hertz";
+      email: "ringsaturn.me@gmail.com";
+    }
+    license: {
+      name: "MIT";
+      url: "https://github.com/ringsaturn/protoc-gen-go-hertz/blob/main/LICENSE";
+    }
+  }
+};
 
 // blog service is a blog demo
 service BlogService {
@@ -21,6 +39,7 @@ service BlogService {
   rpc CreateArticle(CreateArticleRequest) returns (CreateArticleResponse) {
     option (google.api.http) = {
       post: "/v1/author/{author_id}/articles"
+      body: "*"
     };
   }
 }
@@ -53,7 +72,7 @@ message CreateArticleRequest {
 message Article {
   string title    = 1;
   string content  = 2;
-  int32 author_id = 3 [json_name="author_id"];
+  int32 author_id = 3 [json_name = "author_id"];
 }
 
 message CreateArticleResponse {
