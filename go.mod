@@ -1,7 +1,8 @@
 module github.com/ringsaturn/protoc-gen-go-hertz
 
-go 1.22
-toolchain go1.22.9
+go 1.22.7
+
+toolchain go1.23.3
 
 require (
 	github.com/cloudwego/hertz v0.9.3
