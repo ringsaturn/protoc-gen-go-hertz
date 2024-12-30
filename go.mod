@@ -5,16 +5,13 @@ go 1.22.7
 toolchain go1.23.3
 
 require (
-	github.com/cloudwego/hertz v0.9.3
-	google.golang.org/genproto/googleapis/api v0.0.0-20240903143218-8af14fe29dc1
-	google.golang.org/grpc v1.68.0
-	google.golang.org/protobuf v1.35.2
+	github.com/cloudwego/hertz v0.9.4
+	google.golang.org/genproto/googleapis/api v0.0.0-20241015192408-796eee8c2d53
+	google.golang.org/grpc v1.69.2
+	google.golang.org/protobuf v1.36.1
 )
 
 require (
-	github.com/andeya/ameda v1.5.3 // indirect
-	github.com/andeya/goutil v1.0.1 // indirect
-	github.com/bytedance/go-tagexpr/v2 v2.9.11 // indirect
 	github.com/bytedance/gopkg v0.1.0 // indirect
 	github.com/bytedance/sonic v1.12.0 // indirect
 	github.com/bytedance/sonic/loader v0.2.0 // indirect
@@ -28,6 +25,6 @@ require (
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	golang.org/x/arch v0.7.0 // indirect
-	golang.org/x/sys v0.25.0 // indirect
-	golang.org/x/text v0.18.0 // indirect
+	golang.org/x/sys v0.26.0 // indirect
+	golang.org/x/text v0.19.0 // indirect
 )
