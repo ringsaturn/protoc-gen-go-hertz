@@ -5,18 +5,17 @@ go 1.22.7
 toolchain go1.23.3
 
 require (
-	github.com/cloudwego/hertz v0.9.5
-	google.golang.org/genproto/googleapis/api v0.0.0-20241015192408-796eee8c2d53
-	google.golang.org/grpc v1.69.4
-	google.golang.org/protobuf v1.36.3
+	github.com/cloudwego/hertz v0.9.6
+	google.golang.org/genproto/googleapis/api v0.0.0-20250106144421-5f5ef82da422
+	google.golang.org/grpc v1.71.1
+	google.golang.org/protobuf v1.36.4
 )
 
 require (
 	github.com/bytedance/gopkg v0.1.0 // indirect
-	github.com/bytedance/sonic v1.12.0 // indirect
-	github.com/bytedance/sonic/loader v0.2.0 // indirect
+	github.com/bytedance/sonic v1.12.7 // indirect
+	github.com/bytedance/sonic/loader v0.2.2 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect
-	github.com/cloudwego/iasm v0.2.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/nyaruka/phonenumbers v1.3.2 // indirect
@@ -25,6 +24,6 @@ require (
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	golang.org/x/arch v0.7.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
-	golang.org/x/text v0.19.0 // indirect
+	golang.org/x/sys v0.29.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 )
